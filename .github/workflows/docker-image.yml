@@ -39,5 +39,4 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script:
-            export DOCKER_HOST=tcp://4.tcp.eu.ngrok.io:14921
-            docker service update --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} <nom_du_service>
+            docker service update --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} flask-app
