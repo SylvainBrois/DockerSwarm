@@ -30,3 +30,14 @@ jobs:
         with:
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/flask-app-swarm:${{github.sha}}
+      -
+        name: Deploy to Swarm Manager
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          port: 14921
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script:
+            export DOCKER_HOST=tcp://4.tcp.eu.ngrok.io:14921
+            docker service update --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} <nom_du_service>
