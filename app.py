@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect
 
 from methods import db_check_connection
 
@@ -16,10 +16,12 @@ def test():
 def check_db():
     return db_check_connection()
 
-@app.route('/result/<int:x>/<int:y>')
-def result(x, y):
-    add = x + y
-    return add
+
+@app.route('/redirect_amazon')
+def redirect_amazon():
+    return redirect("https://www.amazon.fr")
+
+
 
 
 if __name__ == "__main__":  
