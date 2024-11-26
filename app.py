@@ -16,5 +16,8 @@ def test():
 def check_db():
     return db_check_connection()
 
+@app.route('/result/<x>/<y>')
+def result(x, y):
+    return x + y
 if __name__ == "__main__":  
     app.run(host="0.0.0.0", port=5000)  
