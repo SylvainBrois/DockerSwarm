@@ -8,7 +8,7 @@ def db_check_connection():
     db_user = os.getenv('MYSQL_USER')
     db_pass = os.getenv('MYSQL_PASSWORD')
     db_name = os.getenv('MYSQL_DATABASE')
-    db_host = os.getenv('MYSQL_HOST')
+    db_host = os.getenv('MYSQL_HOST', 'my-sql')
     db_port = os.getenv('MYSQL_PORT')
     try:
         # Tentative de connexion à la base de données
