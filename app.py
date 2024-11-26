@@ -9,5 +9,9 @@ def home():
 def test():
     return "test"
 
+@app.route('/test2')
+def test2():
+    return "test2"
+
 if __name__ == "__main__":  
     app.run(host="0.0.0.0", port=5000)  
