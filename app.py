@@ -18,7 +18,7 @@ def check_db():
 
 @app.route('/result/<x>/<y>')
 def result(x, y):
-    add = x + y
+    add = int(x) + int(y)
     return add
 
 
