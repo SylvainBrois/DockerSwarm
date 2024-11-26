@@ -1,5 +1,3 @@
-from crypt import methods
-
 from flask import Flask
 
 from methods import db_check_connection
