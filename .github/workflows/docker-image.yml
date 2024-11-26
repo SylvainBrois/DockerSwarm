@@ -43,4 +43,16 @@ jobs:
             port: 19309
             username: ${{ secrets.SSH_USERNAME }}
             password: ${{ secrets.SSH_PASSWORD }}
-            script: docker service update --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} flask-app-swarm
+            script: |
+              docker service update \
+                --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} \
+                --update-parallelism 1 \
+                --update-delay 10s \
+                --update-failure-action rollback \
+                flask-app-swarm
+            
+            
+            
+            
+
+            #docker service update --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} flask-app-swarm
