@@ -3,14 +3,9 @@ name: Docker Image CI
 on:
   push:
     branches: [ "master" ]
-
-
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       -
         name: Set up QEMU
@@ -30,7 +25,6 @@ jobs:
         with:
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/flask-app-swarm:${{github.sha}}
-
   deploy:
       needs: build
       runs-on: ubuntu-latest
@@ -55,9 +49,3 @@ jobs:
                 --update-delay 10s \
                 --update-failure-action rollback \
                 flask-app-swarm
-            
-            
-            
-            
-
-            #docker service update --image ${{ secrets.DOCKERHUB_USERNAME }}/flask-app-swarm:${{ github.sha }} flask-app-swarm
