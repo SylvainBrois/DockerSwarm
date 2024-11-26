@@ -1,4 +1,9 @@
-from flask import Flask  
+from crypt import methods
+
+from flask import Flask
+
+from methods import db_check_connection
+
 app = Flask(__name__)  
 
 @app.route('/')  
@@ -9,9 +14,9 @@ def home():
 def test():
     return "test"
 
-@app.route('/test2')
-def test2():
-    return "test2"
+@app.route('/check_db')
+def check_db():
+    return db_check_connection()
 
 if __name__ == "__main__":  
     app.run(host="0.0.0.0", port=5000)  
