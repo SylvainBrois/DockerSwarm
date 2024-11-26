@@ -30,7 +30,7 @@ jobs:
         with:
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/flask-app-swarm:${{github.sha}}
-      -
+
   deploy:
       needs: build
       runs-on: ubuntu-latest
