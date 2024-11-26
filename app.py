@@ -16,9 +16,9 @@ def test():
 def check_db():
     return db_check_connection()
 
-@app.route('/result/<x>/<y>')
+@app.route('/result/<int:x>/<int:y>')
 def result(x, y):
-    add = int(x) + int(y)
+    add = x + y
     return add
 
 
