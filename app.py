@@ -18,6 +18,6 @@ def check_db():
 
 @app.route('/result/<x>/<y>')
 def result(x, y):
-    return x + y
+    return int(x) + int(y)
 if __name__ == "__main__":  
     app.run(host="0.0.0.0", port=5000)  
